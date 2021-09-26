@@ -4,15 +4,14 @@ $("#currentDay").html(todayDate);
 $(document).ready(function () {
 
     $(".saveBtn").on("click", function () {
-        //get nearby values.
+        
         console.log(this);
-        var text = $(this).siblings(".description").val(); // taken the change from the sibling html description attribute
-        var time = $(this).parent().attr("id"); // taken the change from the parent html id attribute
+        var text = $(this).siblings(".description").val(); 
+        var time = $(this).parent().attr("id");
 
-        //set items in local storage.
         localStorage.setItem(time, text);
     })
-    //load any saved data from LocalStorage - do this for each hour created. Should follow html 24 hour to 12 hour conversion.
+
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour10 .description").val(localStorage.getItem("hour10"));
     $("#hour11 .description").val(localStorage.getItem("hour11"));
@@ -24,15 +23,13 @@ $(document).ready(function () {
     $("#hour17 .description").val(localStorage.getItem("hour17"));
 
     function hourTracker() {
-        //get current number of hours.
-        var currentHour = moment().hour(); // use of moment.js
-
-        // loop over time blocks
+        
+        var currentHour = moment().hour(); 
+         
         $(".time-block").each(function () {
             var blockHour = parseInt($(this).attr("id").split("hour")[1]);
             console.log( blockHour, currentHour)
 
-            //check if we've moved past this time, click into css/html given classes of past, present, or future
             if (blockHour < currentHour) {
                 $(this).addClass("past");
                 $(this).removeClass("future");
@@ -50,5 +47,5 @@ $(document).ready(function () {
             }
         })
     }
-    hourTracker(); //re-run function
+    hourTracker();
     })
