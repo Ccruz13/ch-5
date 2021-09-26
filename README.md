@@ -9,7 +9,7 @@ CSS
 JavaScript
 
 ## Screenshot
-![Screenshot](Screenshot.png)
+![Screenshot](develop/Screen-shot.png)
 
 ## Website
 https://ccruz13.github.io/ch-5/
