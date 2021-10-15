@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     function time() {
 
-        var currentHour = moment.hour();
+        var currentHour = moment().hour();
 
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
